@@ -29,7 +29,7 @@ def model_predict():
     tp = TextPreprocessing()
 
     sent = pd.Series(request.json['text'])
-    new_sent = [tp.tweet_preprocessing(i) for i in sent]
+    new_sent = [tp.text_preprocessing(i) for i in sent]
 
     seq = SentimentService.load_tokenizer().texts_to_sequences(pd.Series(''.join(new_sent)))
     test = pad_sequences(seq, maxlen=256)

@@ -23,7 +23,7 @@ class TextPreprocessing(object):
     def re_sub(self,pattern, repl,text):
             return re.sub(pattern, repl, text, flags=self.FLAGS)
 
-    def tweet_preprocessing(self,text):
+    def text_preprocessing(self,text):
         eyes = r"[8:=;]"
         nose = r"['`-]?"
 
