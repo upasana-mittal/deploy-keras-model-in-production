@@ -22,6 +22,12 @@ Install the requirements by using the below command:
 
     $ pip install -r requirements.txt
 
+## Download saved model & tokenizer
+
+Download the zip file. Unzip it and save it under `src` folder.
+
+https://drive.google.com/open?id=1oBfuVBCYXKYjtyrRh0tCkstnKuGZlyWb
+
 ## Running the program
 You can run the program from command line using below command from the root of the project directory.
 
