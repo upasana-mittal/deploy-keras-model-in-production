@@ -3,8 +3,7 @@ import pandas as pd
 from flask import Flask, request, abort, Response
 from keras.preprocessing.sequence import pad_sequences
 from service.textPreprocessing import TextPreprocessing
-from keras import backend
-from service.sentimentService import SentimentService
+from service.sentimentService import *
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -34,7 +33,8 @@ def model_predict():
     seq = SentimentService.load_tokenizer().texts_to_sequences(pd.Series(''.join(new_sent)))
     test = pad_sequences(seq, maxlen=256)
 
-    with backend.get_session().graph.as_default() as g:
+    another_strategy = tf.distribute.MirroredStrategy()
+    with another_strategy.scope():
         model = SentimentService.get_model1()
 
     res = model.predict_proba(test,batch_size=32, verbose=0)

@@ -47,14 +47,14 @@ Program output:
 ```
 Now our server is running on localhost at 5000 port.
 
-.Sample Input
+#### Sample Input
 ```json
 {
 	"text": "great i am liking it"
 }
 ```
 
-.Output
+#### Output
 ```json
 {
     "anger": 7.112710922956467,

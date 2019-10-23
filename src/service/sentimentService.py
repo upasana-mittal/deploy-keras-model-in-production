@@ -1,5 +1,5 @@
-from keras.models import model_from_json
 import pickle
+import tensorflow as tf
 
 class SentimentService(object):
     model1 = None
@@ -7,13 +7,7 @@ class SentimentService(object):
 
     @classmethod
     def load_deep_model(self, model):
-        json_file = open('mood-saved-models/' + model + '.json', 'r')
-        loaded_model_json = json_file.read()
-        loaded_model = model_from_json(loaded_model_json)
-
-        loaded_model.load_weights("mood-saved-models/" + model + ".h5")
-
-        loaded_model._make_predict_function()
+        loaded_model = tf.keras.models.load_model("mood-saved-models/" + model + ".h5")
         return loaded_model
 
     @classmethod
