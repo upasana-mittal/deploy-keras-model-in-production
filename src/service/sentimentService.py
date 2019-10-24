@@ -7,11 +7,11 @@ class SentimentService(object):
 
     @classmethod
     def load_deep_model(self, model):
-        json_file = open('mood-saved-models/' + model + '.json', 'r')
+        json_file = open('./src/mood-saved-models/' + model + '.json', 'r')
         loaded_model_json = json_file.read()
         loaded_model = model_from_json(loaded_model_json)
 
-        loaded_model.load_weights("mood-saved-models/" + model + ".h5")
+        loaded_model.load_weights("./src/mood-saved-models/" + model + ".h5")
 
         loaded_model._make_predict_function()
         return loaded_model
@@ -25,7 +25,7 @@ class SentimentService(object):
     @classmethod
     def load_tokenizer(self):
         if self.tokenizer is None:
-            with open('mood-saved-models/tokenizer.pickle', 'rb') as handle:
+            with open('./src/mood-saved-models/tokenizer.pickle', 'rb') as handle:
                 self.tokenizer = pickle.load(handle)
         return self.tokenizer
 
