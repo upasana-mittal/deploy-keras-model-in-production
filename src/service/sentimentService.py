@@ -7,7 +7,7 @@ class SentimentService(object):
 
     @classmethod
     def load_deep_model(self, model):
-        loaded_model = tf.keras.models.load_model("mood-saved-models/" + model + ".h5")
+        loaded_model = tf.keras.models.load_model("./src/mood-saved-models/" + model + ".h5")
         return loaded_model
 
     @classmethod
@@ -19,7 +19,7 @@ class SentimentService(object):
     @classmethod
     def load_tokenizer(self):
         if self.tokenizer is None:
-            with open('mood-saved-models/tokenizer.pickle', 'rb') as handle:
+            with open('./src/mood-saved-models/tokenizer.pickle', 'rb') as handle:
                 self.tokenizer = pickle.load(handle)
         return self.tokenizer
 
