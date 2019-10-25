@@ -3,6 +3,8 @@
 This readme will showcase use of Sample Mood detection project in which 
 we have a keras's saved model in python. We will be using that to create REST Api to deploy in production.
 
+This is in refrence to the article written on javacodemonk as https://www.javacodemonk.com/deploying-keras-model-in-production-with-tensorflow-2-0-b611a62b
+
 ## Setting up virtual environment
 You must have Python 3.6 installed on your system.
 
